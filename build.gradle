@@ -1,0 +1,58 @@
+repositories {
+    jcenter()
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.73")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:2.0.73'
+    testImplementation 'net.serenity-bdd:serenity-junit:2.0.73'
+    testImplementation 'net.serenity-bdd:serenity-reports:2.0.75'
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.assertj:assertj-core:3.13.2')
+    testImplementation('org.slf4j:slf4j-simple:1.7.28')
+    implementation 'net.serenity-bdd:serenity-core:2.0.73'
+    implementation 'net.serenity-bdd:serenity-junit:2.0.73'
+    implementation 'net.serenity-bdd:serenity-cucumber:1.9.45'
+    implementation('net.serenity-bdd:serenity-screenplay:2.0.73')
+    implementation('net.serenity-bdd:serenity-screenplay-webdriver:2.0.73')
+    compile group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.6.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'
+
+    testCompile ('org.junit.jupiter:junit-jupiter:5.6.0')
+
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay-rest
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: '2.0.73'
+
+//    phantomJS
+    // https://mvnrepository.com/artifact/com.github.ozlerhakan/poiji
+    implementation group: 'com.github.ozlerhakan', name: 'poiji', version: '3.0.3'
+
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin
+    testCompile group: 'org.apache.maven.plugins', name: 'maven-failsafe-plugin', version: '3.0.0-M5'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.1'
+
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20201115'
+
+}
+gradle.startParameter.continueOnFailure = true
